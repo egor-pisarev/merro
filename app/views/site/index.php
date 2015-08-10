@@ -1,5 +1,7 @@
 <?php
 use yii\easyii\modules\carousel\api\Carousel;
+use yii\easyii\modules\news\api\News;
+use yii\easyii\modules\gallery\api\Gallery;
 
 $this->title = 'Merro - Home';
 ?>
@@ -33,23 +35,7 @@ $this->title = 'Merro - Home';
 
 <div class="container">
     <div class="row">
-        <div class="col col-2">
-            <div class="news promo-news">
-                <div class="element">
-                    <a href="/" class="image">
-                        <img src="/uploads/data/promonew1.jpg"/>
-                    </a>
-                    <a href="/" class="title">Я благодарен вам выиграть будущее</a>
-                </div>
-                <div class="element">
-                    <a href="/" class="image">
-                        <img src="/uploads/data/promonew1.jpg"/>
-                    </a>
-                    <a href="/" class="title">Я благодарен вам выиграть будущее</a>
-                </div>
-            </div>
-        </div>
-        <div class="col col-3">
+        <div class="col col-4">
             <div class="block-head">
                 <h3>Корпоративные новости</h3>
                 <span class="eng-title">Corporate Information</span>
@@ -57,62 +43,27 @@ $this->title = 'Merro - Home';
             </div>
             <div class="news">
                 <ul>
-                    <li>
-                        <span class="icon">●</span>
-                        <a class="title" href="/">Третий Корея бесплатно круизное судно тур замечательный ... </a>
-                        <span class="date">[2015-07-18]</span>
-                    </li>
-                    <li>
-                        <span class="icon">●</span>
-                        <a class="title" href="/">метро Департамент летней работы управления конференции ... </a>
-                        <span class="date">[2015-07-18]</span>
-                    </li>
-                    <li>
-                        <span class="icon">●</span>
-                        <a class="title" href="/">Агрегации герой власть гордость Merro Международный ... </a>
-                        <span class="date">[2015-07-18]</span>
-                    </li>
-                    <li>
-                        <span class="icon">●</span>
-                        <a class="title" href="/">Агрегации герой власть гордость Merro Международный ...</a>
-                        <span class="date">[2015-07-18]</span>
-                    </li>
-                    <li>
-                        <span class="icon">●</span>
-                        <a class="title" href="/">Агрегации герой власть гордость Merro Международный ...</a>
-                        <span class="date">[2015-07-18]</span>
-                    </li>
+                    <?php foreach(News::last(5) as $news ):?>
+                        <li>
+                            <span class="icon">●</span>
+                            <a class="title" href="/"><?=$news->title ?></a>
+                            <span class="date">[<?=$news->date ?>]</span>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
         <div class="col col-5">
             <div class="photogallery">
-                <a class="preview" href="/">
-                    <img src="/uploads/data/photo1.jpg">
-                    <div class="title">подпись1</div>
-                </a>
-                <a class="preview" href="/">
-                    <img src="/uploads/data/photo1.jpg">
-                    <div class="title">подпись1</div>
-                </a>
-                <a class="preview" href="/">
-                    <img src="/uploads/data/photo1.jpg">
-                    <div class="title">подпись1</div>
-                </a>
-                <a class="preview" href="/">
-                    <img src="/uploads/data/photo1.jpg">
-                    <div class="title">подпись1</div>
-                </a>
-                <a class="preview" href="/">
-                    <img src="/uploads/data/photo1.jpg">
-                    <div class="title">подпись1</div>
-                </a>
-                <a class="preview" href="/">
-                    <img src="/uploads/data/photo1.jpg">
-                    <div class="title">подпись1</div>
-                </a>
+                <?php foreach(Gallery::cats()  as $cat): ?>
+                    <a class="preview" href="<?=Yii::$app->urlManager->createUrl(['site/gallery','slug'=>$cat->slug])?>">
+                        <img src="<?=$cat->image?>">
+                        <div class="title"><?=$cat->title?></div>
+                    </a>
+                <?php endforeach; ?>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -136,21 +87,6 @@ $this->title = 'Merro - Home';
                 </div>
             </div>
 
-        </div>
-        <div class="col col-4">
-            <div class="block-head">
-                <h3>Новые продукты</h3>
-                <span class="eng-title">New Products</span>
-                <a href="/">посмотреть все >></a>
-            </div>
-            <div class="preview-products">
-                <a class="element" href="/">
-                    <img src="/uploads/data/product1.jpg">
-                </a>
-                <a class="element" href="/">
-                    <img src="/uploads/data/product2.jpg">
-                </a>
-            </div>
         </div>
         <div class="col col-2">
             <div id="qr-code">

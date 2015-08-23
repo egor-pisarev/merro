@@ -26,7 +26,7 @@ class MainMenu extends \yii\widgets\Menu{
         $page = Page::find()->one();
         if($page){
             $items[] = [
-                'label'=>'Профиль группа',
+                'label'=>'О компании',
                 'url'=>['site/page','slug'=>$page->slug],
             ];
         }

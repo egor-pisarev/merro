@@ -77,7 +77,7 @@ $this->title = 'Merro - Home';
                     <img src="/uploads/data/bossphoto.png">
                 </div>
                 <div class="block-head">
-                    <h3>Слова основателей</h3>
+                    <h3>Обращение основателей Merro International</h3>
                     <span class="eng-title">Founder of a speech</span>
                 </div>
                 <div class="text">

@@ -26,6 +26,22 @@ $config = [
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
         ],
+        'urlManager' => [
+            'rules' => [
+                '/' => 'site/index',
+                'news/<slug>'=>'site/news',
+                'news'=>'site/news',
+                'article/<slug>'=>'site/article',
+                'articles/<category>'=>'site/article',
+                'albom/<slug>'=>'site/gallery',
+                'albom'=>'site/gallery',
+                'contact'=>'site/contact',
+                '<slug>'=>'site/page',
+                '<c:\w+>/<a:\w+>',
+                '<c:\w+>/<id:\d+>' => '<c>/view',
+                '<c:\w+>/<a:\w+>/<id:\d+>' => '<c>/<a>',
+            ]
+        ],
         'assetManager' => [
             // uncomment the following line if you want to auto update your assets (unix hosting only)
             //'linkAssets' => true,

@@ -35,8 +35,12 @@ use yii\easyii\modules\gallery\api\Gallery;
         <div class="col col-9 news-content news-block">
             <h2>Свежие новости</h2>
             <?php foreach(News::items() as $newsItem): ?>
-                <?=Html::a($newsItem->title,['site/news','slug'=>$newsItem->slug])?>
-                <small>[<?=date('Y-m-d',$newsItem->time)?>]</small>
+                <div>
+                    <?=Html::a($newsItem->title,['site/news','slug'=>$newsItem->slug])?>
+                    <small>[<?=date('Y-m-d',$newsItem->time)?>]</small>
+                </div>
+
+
             <?php endforeach; ?>
         </div>
 

@@ -2,7 +2,7 @@
 use yii\easyii\modules\carousel\api\Carousel;
 use yii\easyii\modules\news\api\News;
 use yii\easyii\modules\gallery\api\Gallery;
-
+use yii\easyii\modules\text\api\Text;
 $this->title = 'Merro - Home';
 ?>
 
@@ -46,7 +46,7 @@ $this->title = 'Merro - Home';
                     <?php foreach(News::last(5) as $news ):?>
                         <li>
                             <span class="icon">●</span>
-                            <a class="title" href="/"><?=$news->title ?></a>
+                            <a class="title" href="<?=Yii::$app->urlManager->createUrl(['site/news','slug'=>$news->slug])?>"><?=$news->title ?></a>
                             <span class="date">[<?=$news->date ?>]</span>
                         </li>
                     <?php endforeach; ?>
@@ -81,9 +81,7 @@ $this->title = 'Merro - Home';
                     <span class="eng-title">Founder of a speech</span>
                 </div>
                 <div class="text">
-                    Metro International отстаивать "существует только для здоровья," компании направлены на
-                    песчаный, последовательное дух, чтобы достичь амбициозной давнюю желание: переносить культуры
-                    здоровья тысячелетия
+                    <?=Text::get('words')?>
                 </div>
             </div>
 

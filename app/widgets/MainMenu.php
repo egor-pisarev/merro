@@ -44,7 +44,7 @@ class MainMenu extends \yii\widgets\Menu{
 
         $items[] =
             [
-                'label'=>'Новости',
+                'label'=>'Новостная лента',
                 'url'=>['site/news'],
             ];
         $this->items = $items;

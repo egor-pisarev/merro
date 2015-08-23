@@ -36,7 +36,7 @@ use yii\easyii\modules\gallery\api\Gallery;
                             <?php foreach(News::items() as $newsItem):?>
                             <li>
                                 <span class="icon">●</span>
-                                <a class="title" href="/"><?=$newsItem->title?></a>
+                                <a class="title" href="<?=Yii::$app->urlManager->createUrl(['site/news','slug'=>$newsItem->slug])?>"><?=$newsItem->title?></a>
                                 <span class="date">[<?=date('Y-m-d',$newsItem->time)?>]</span>
                             </li>
                             <?php endforeach; ?>

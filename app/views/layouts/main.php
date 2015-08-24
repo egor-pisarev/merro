@@ -73,9 +73,11 @@ if(Yii::$app->controller->action->id == 'gallery'){
             <div class="row">
                 <div class="col">
                     <a id="footer-logo" href="/"></a>
-
                     <div class="footer-text">
-                        ©Copyright 2015 www.merroint.com All right reserved
+                        ©Copyright 2015 www.merro-int.ru All right reserved
+                    </div>
+                    <div class="footer-text" style="float: right">
+                        <a title="Merro International партнер SiSS.ru" href="http://siss.ru/firms/merro-international/"><img border="0" alt="" style="margin: 0px; padding: 0px; border: 0px none; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; line-height: inherit;" src="http://siss.ru/uploads/images/SiSS_parner_88x31_oranjevii.png" /></a>
                     </div>
                     <div class="footer-text" style="float: right">
                         <a title="Создание и продвижение сайта siss-cms" href="http://www.siss-cms.ru/"><img border="0" alt="" style="margin: 0px; padding: 0px; border: 0px none; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; line-height: inherit;" src="http://www.siss-cms.ru/uploads/11/sc_white.png" />

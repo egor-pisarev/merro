@@ -234,9 +234,9 @@ nav {
 .block-head {
 
   margin-bottom: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
   border-bottom: 1px solid #9e7760;
-  height: 52px; }
+  }
   .block-head h3 {
     color: #efca66;
     font-size: 20px;

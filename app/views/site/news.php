@@ -53,10 +53,10 @@ use yii\easyii\modules\gallery\api\Gallery;
             <h2>Свежие фотографии</h2>
             <div class="container">
                 <div class="row">
-                    <?php foreach(Gallery::cats()  as $cat): ?>
+                    <?php foreach(\yii\easyii\modules\gallery\models\Category::find()->limit(4)->all() as $gallery): ?>
                         <div class="col col-2">
-                            <img src="<?=$cat->image?>"/>
-                            <?=Html::a($cat->title,['site/gallery','slug'=>$cat->slug])?>
+                            <img src="<?=$gallery->image?>" style="width: 150px;"/>
+                            <?=Html::a($gallery->title,['site/gallery','slug'=>$gallery->slug])?>
                         </div>
                     <?php endforeach; ?>
                 </div>

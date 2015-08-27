@@ -3,6 +3,7 @@ use yii\easyii\modules\carousel\api\Carousel;
 use yii\easyii\modules\news\api\News;
 use yii\easyii\modules\gallery\api\Gallery;
 use yii\easyii\modules\text\api\Text;
+use yii\easyii\modules\article\api\Article;
 $this->title = 'Merro - Home';
 ?>
 
@@ -57,7 +58,7 @@ $this->title = 'Merro - Home';
             <div class="photogallery">
                 <?php foreach(Gallery::cats()  as $cat): ?>
                     <a class="preview" href="<?=Yii::$app->urlManager->createUrl(['site/gallery','slug'=>$cat->slug])?>">
-                        <img src="<?=$cat->image?>">
+                        <img src="<?=$cat->image?>" style="width: 150px; height: 100px">
                         <div class="title"><?=$cat->title?></div>
                     </a>
                 <?php endforeach; ?>
@@ -89,6 +90,23 @@ $this->title = 'Merro - Home';
         <div class="col col-2">
             <div id="qr-code">
                 <img src="/uploads/data/qr.jpg">
+            </div>
+        </div>
+        <div class="col col-4">
+            <div class="block-head">
+                <h3>Свежие статьи</h3>
+                <span class="eng-title">Corporate Information</span>
+            </div>
+            <div class="news">
+                <ul>
+                    <?php foreach(Article::last(5) as $news ):?>
+                        <li>
+                            <span class="icon">●</span>
+                            <a class="title" href="<?=Yii::$app->urlManager->createUrl(['site/article','slug'=>$news->slug])?>"><?=$news->title ?></a>
+                            <span class="date">[<?=$news->date ?>]</span>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
         </div>
     </div>

@@ -60,13 +60,14 @@
                         <span class="eng-title">Newest Specials</span>
                     </div>
 
-                    <div class="photogallery">
-                        <?php foreach(Gallery::cats()  as $cat): ?>
-                            <a class="preview" href="<?=Yii::$app->urlManager->createUrl(['site/gallery','slug'=>$cat->slug])?>">
-                                <img src="<?=$cat->image?>"/>
+                    <div class="gallery">
+                        <?php foreach(\yii\easyii\modules\gallery\models\Category::find()->limit(4)->all() as $cat): ?>
+                            <a class="photo" href="<?=Yii::$app->urlManager->createUrl(['site/gallery','slug'=>$cat->slug])?>">
+                                <img src="<?=$cat->image?>" style="width: 200px" />
                                 <div class="title"><?=$cat->title?></div>
                             </a>
                         <?php endforeach; ?>
+
                     </div>
 
                 </div>

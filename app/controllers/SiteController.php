@@ -31,20 +31,22 @@ class SiteController extends Controller
             return $this->render('article-item',['slug'=>Yii::$app->request->get('slug')]);
         }
         if(Yii::$app->request->get('category')){
-
             $category = Article::cat(Yii::$app->request->get('category'));
-            $menuItems = [];
-            foreach($category->model->getBehavior('tree')->parents(1)->one()->children(1)->all() as $item){
-                $menuItems[] = [
-                    'label'=>$item->title,
-                    'url'=>['site/article','category'=>$item->slug]
-                ];
-            }
-            return $this->render('article-category',[
-                'category'=>$category,
-                'menuItems'=>$menuItems,
-            ]);
+        }else{
+            $category = Article::cat();
         }
+
+        $menuItems = [];
+        foreach($category->model->getBehavior('tree')->parents(1)->one()->children(1)->all() as $item){
+            $menuItems[] = [
+                'label'=>$item->title,
+                'url'=>['site/article','category'=>$item->slug]
+            ];
+        }
+        return $this->render('article-category',[
+            'category'=>$category,
+            'menuItems'=>$menuItems,
+        ]);
         return $this->render('article-category');
     }
 
